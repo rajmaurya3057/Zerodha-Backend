@@ -216,27 +216,10 @@ app.post("/newOrders", async (req, res) => {
   res.send("Order saved");
 });
 
-app.post("/signUp", async (req, res) => {
-  let { email, username, password } = req.body;
-  const newUser = UserModel({
-    email: email,
-    username: username,
-    password: password,
-  });
+// app.listen(PORT, (req, res) => {
+//   console.log("https://localhost:3002");
+//   mongoose.connect(uri);
+//   console.log("Connected to DB");
+// });
 
-  await newUser.save();
-  res.send("User SignUp Suuccessfully");
-});
-
-app.post("/signup", (req, res) => {
-  const { name, email, password } = req.body;
-  // TODO: validate & save user and generate real JWT
-  // For demo, return a fake token
-  return res.json({ success: true, token: "realistic-demo-token" });
-});
-
-app.listen(PORT, (req, res) => {
-  console.log("https://localhost:3002");
-  mongoose.connect(uri);
-  console.log("Connected to DB");
-});
+module.exports = app;
